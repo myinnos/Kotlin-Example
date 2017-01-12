@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Kotlin Example</string>
+
+    <string name="button_text_done">DONE</string>
+    <string name="button_text_source_code">GITHUB LINK</string>
+    <string name="button_text_functions">TUTORIAL</string>
+
+    <string name="action_rate_text">Rate this App!</string>
+    <string name="action_feedback_text">Feedback</string>
+    <string name="action_share_text">Share with humans!</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+
+    <string name="share_text">You can try awesome example for Kotlin Android Application here! : https://play.google.com/store/apps/details?id=</string>
+
+</resources>

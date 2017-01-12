@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+final ANKO_VERSION = '0.8.3'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "in.myinnos.kotlinexample"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/menu_main/kotlin'
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:customtabs:25.1.0'
+
+    // Initializing kotlin library
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Initializing anko library
+    compile "org.jetbrains.anko:anko-sdk15:${ANKO_VERSION}"
+
+    // you can use this libraries to use anko UI
+    //compile "org.jetbrains.anko:anko-appcompat-v7:${ANKO_VERSION}"
+    //compile "org.jetbrains.anko:anko-recyclerview-v7:${ANKO_VERSION}"
+}
+repositories {
+    mavenCentral()
+}
