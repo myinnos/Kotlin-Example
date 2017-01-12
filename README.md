@@ -2,9 +2,9 @@
 
 Here is an example for who are all going to start learning Kotlin programming language to develop  Android application.
 
-First check [this](https://play.google.com/store/apps/details?id=in.myinnos.fansfolio "Kotlin Example - Android") example APK to understand basic steps easily. I enjoyed alot while doing this tutorial, If your Java developer you can play with this. *Happy Coding!*
+First check [this](https://play.google.com/store/apps/details?id=in.myinnos.kotlinexample "Kotlin Example - Android") example APK to understand basic steps easily. I enjoyed alot while doing this tutorial, If your Java developer you can play with this. *Happy Coding!*
 
-[![Get it on Google Play](https://s19.postimg.org/5wroedueb/ic_launcher.png)](https://play.google.com/store/apps/details?id=in.myinnos.fansfolio)
+[![Get it on Google Play](https://s19.postimg.org/5wroedueb/ic_launcher.png)](https://play.google.com/store/apps/details?id=in.myinnos.kotlinexample)
 
 [Kotlin](https://kotlinlang.org/ "Kotlin") is very lightweight, its runtime library is under 400K minus the ProGuard minification. Also, installation is very simple. All you have to do is browse the plugin repository and get the official Kotlin plugin. You also had to install Kotlin Android Extensions as well, required for Android of course, but not until recently it has been merged with the Kotlin plugin and is now obsolete.
 
