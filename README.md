@@ -54,7 +54,7 @@ One thing to be noted here, the Anko base library, i.e., the anko-sdk* lib, you 
 
 ## Example
 
-
+ ![Kotlin Example - Splashscreen](https://s19.postimg.org/6h6ph2nmr/Kotlin_Example_Splashscreen.png) ![Kotlin Example - MainScreen](https://s19.postimg.org/8j76vbllv/Kotlin_Example_Main_Screen.png) ![Kotlin Example - Menu](https://s19.postimg.org/4o3ssr2g3/Kotlin_Example_Menu.png) ![Kotlin Example - WebView](https://s19.postimg.org/ol9q1plb7/Kotlin_Example_Web_View.png)
 
 #### SplashScreenActivity.kt
 
@@ -143,7 +143,6 @@ fun openAlertDialog(name: String, phoneNumber: String) {
                 }
 
             }.show()
-
 }
 ```
 ##### Initializing menu options 
