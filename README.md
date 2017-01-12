@@ -54,7 +54,268 @@ One thing to be noted here, the Anko base library, i.e., the anko-sdk* lib, you 
 
 ## Example
 
-##### *Comming soon ...* (Want to help me?, please let me know by opening a [new issue](https://github.com/myinnos/Kotlin-Example/issues/new)!)
+
+
+#### SplashScreenActivity.kt
+
+Splash screen is one of the friend for android devloeprs will see most of the times this screen while develpoing intresting concepts. Here you can see how Splashscreen code looks interms of Kotlin.
+
+*Note: Here i followed [this](https://www.bignerdranch.com/blog/splash-screens-the-right-way/ "Splash screens the right way") tutorial to create express splashscreen.*
+```java
+class SplashScreenActivity : Activity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Start main activity
+        startActivity(Intent(this, MainActivity::class.java))
+
+        // close this activity
+        overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out)
+        finish()
+    }
+
+}
+```
+###### Some Awesome methods/functions
+##### Variable declaration. int/string/boolean
+```java
+var EMAIL_ID = "contact@myinnos.in"
+```
+##### To open Web URL
+```java
+browse(GIT_HUB_URL)
+```
+##### setText function
+```java
+tvHeader.text = HEADER_TEXT
+```
+##### Hint to Edit Text
+```java
+etName.hint = EDIT_TEXT_NAME_HINT
+```
+##### Toast 
+```java
+toast("Activity restarted!")
+```
+##### Email Intent  
+```java
+email(EMAIL_ID, "subject")
+```
+##### Share Intent 
+```java
+share("text")
+```
+##### Function declaration, function to get text length of edit text 
+```java
+fun checkTextLength(editText: EditText): Boolean {
+        var length = editText.length()
+        if (length > 0)
+            return true
+        else
+            return false
+}
+```
+##### onClick funtion
+```java
+btDone.onClick {
+            hideKeyboard()
+            if (!checkTextLength(etName) || !checkTextLength(etMobile))
+                toast("Fields cannot be empty!")
+            else
+                onButtonClicks()
+}
+```
+##### Dialog Aleart Box 
+```java
+fun openAlertDialog(name: String, phoneNumber: String) {
+
+        val countries = listOf("Russia", "India", "USA", "Japan", "China")
+
+        selector("Where are you from?", countries) { i ->
+            alert("One more thing! You have entered this number " + phoneNumber, name + "! So you're living in ${countries[i]}, right?")            {
+                customView {
+                    verticalLayout {
+                        positiveButton("AWESOME!") {
+                            longToast("Thank you!")
+                        }
+                    }
+                }
+
+            }.show()
+
+}
+```
+##### Initializing menu options 
+```java
+ override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        getMenuInflater().inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+ override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id = item!!.getItemId()
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_rate) {
+            // opining browser intent
+            browse(PLAY_STORE_URL)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+```
+#### MainActivity.kt
+
+Main screen, The wall where Android developer paint and repair. Here you can observe the code how plain and simple. Basically i started loving Kotlin while writing this class.  
+
+*Note: I used [Google Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs "Google Custom Tabs") library to understand how third party java libraries will work with Kotlin.*
+```java
+class MainActivity : AppCompatActivity() {
+
+    var HEADER_TEXT = "You can try awesome example!"
+    var EDIT_TEXT_NAME_HINT = "enter name"
+    var EDIT_TEXT_NUMBER_HINT = "enter number"
+    var EMAIL_ID = "contact@myinnos.in"
+    var GIT_HUB_URL = "https://github.com/myinnos/Kotlin-Example"
+    var GIT_HUB_WEB_URL = "https://myinnos.github.io/Kotlin-Example/";
+    var PLAY_STORE_URL = "market://details?id=" + BuildConfig.APPLICATION_ID
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // setting header text
+        tvHeader.text = HEADER_TEXT
+        // setting hint for edit text
+        etName.hint = EDIT_TEXT_NAME_HINT
+        etMobile.hint = EDIT_TEXT_NUMBER_HINT
+
+        // setting drawable image to image view
+        imageView.resources.getDrawable(R.mipmap.ic_launcher)
+
+        // onclick event for image view to restart activity (Intent function)
+        imageView.onClick {
+            startActivity<SplashScreenActivity>()
+            finish()
+            toast("Activity restarted!")
+        }
+
+        // onclick event for button
+        btDone.onClick {
+            hideKeyboard()
+            if (!checkTextLength(etName) || !checkTextLength(etMobile))
+                toast("Fields cannot be empty!")
+            else
+                onButtonClicks()
+        }
+
+        btGitHubLink.onClick {
+            // opining browser intent
+            browse(GIT_HUB_URL)
+        }
+
+        btTutorial.onClick {
+            // google custom tabs
+            val builder = CustomTabsIntent.Builder()
+            builder.setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary))
+            val customTabsIntent = builder.build()
+            customTabsIntent.launchUrl(this, Uri.parse(GIT_HUB_WEB_URL))
+        }
+    }
+
+    // function to get text from edit text
+    fun EditText.textValue(): String {
+        return text.toString()
+    }
+
+    // function to get text length of edit text
+    fun checkTextLength(editText: EditText): Boolean {
+
+        var length = editText.length()
+
+        if (length > 0)
+            return true
+        else
+            return false
+    }
+
+    // function to hide keyboard
+    fun hideKeyboard() {
+        try {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        } catch (e: Exception) {
+            // TODO: handle exception
+        }
+
+    }
+
+    fun onButtonClicks() {
+        //using function
+        val phoneNumber = etMobile.textValue()
+        // direct access
+        val name = etName.text.toString()
+        // calling alert dialog
+        openAlertDialog(name, phoneNumber)
+    }
+
+    fun openAlertDialog(name: String, phoneNumber: String) {
+
+        val countries = listOf("Russia", "India", "USA", "Japan", "China")
+
+        selector("Where are you from?", countries) { i ->
+            //toast("So you're living in ${countries[i]}, right?")
+            alert("One more thing! You have entered this number " + phoneNumber, name + "! So you're living in ${countries[i]}, right?") {
+                customView {
+                    verticalLayout {
+                        positiveButton("AWESOME!") {
+                            longToast("Thank you!")
+                        }
+                    }
+                }
+
+            }.show()
+
+        }
+    }
+
+    // Initializing menu options
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        val id = item!!.getItemId()
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_share) {
+            // sharing intent
+            share(getString(R.string.share_text) + BuildConfig.APPLICATION_ID,
+                    getString(R.string.app_name))
+            return true
+        } else if (id == R.id.action_feedback) {
+            // email intent
+            email(EMAIL_ID, getString(R.string.app_name))
+            return true
+        } else if (id == R.id.action_rate) {
+            // opining browser intent
+            browse(PLAY_STORE_URL)
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+}
+```
+### Conclusion
+Kotlin is overall a great language. It is much less verbose than Java, and has an excellent standard library that removes the need to use a lot of the libraries that make Java life bearable. Converting an app from Java to Kotlin is made much easier thanks to automated syntax conversion, and the result is almost always an improvement. If you’re an Android developer, you owe it to yourself to give it a try.
+
+##### Any Queries? or Feedback, please let me know by opening a [new issue](https://github.com/myinnos/Kotlin-Example/issues/new)!
 
 ## Contact
 #### Prabhakar Thota
