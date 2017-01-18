@@ -62,9 +62,7 @@ Splash screen is one of the friend for android developers will see most of the t
 *Note: Here i followed [this](https://www.bignerdranch.com/blog/splash-screens-the-right-way/ "Splash screens the right way") tutorial to create express splashscreen.*
 
 ```java
-class 
-: Activity() {
-
+class : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -79,6 +77,7 @@ class
 }
 ```
 ###### Some Awesome methods/functions
+
 ##### Variable declaration. int/string/boolean
 
 ```java
