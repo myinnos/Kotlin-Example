@@ -76,6 +76,7 @@ class : Activity() {
 
 }
 ```
+
 ###### Some Awesome methods/functions
 
 ##### Variable declaration. int/string/boolean
