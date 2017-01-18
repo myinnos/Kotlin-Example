@@ -2,11 +2,11 @@
 
 Here is an example for who are all going to start learning Kotlin programming language to develop  Android application.
 
-First check [this](https://play.google.com/store/apps/details?id=in.myinnos.kotlinexample "Kotlin Example - Android") example APK to understand basic steps easily. I enjoyed alot while doing this tutorial, If your Java developer you can play with this. *Happy Coding!*
+First check [this](https://play.google.com/store/apps/details?id=in.myinnos.kotlinexample "Kotlin Example - Android") example APK to understand basic steps easily. I enjoyed a lot while doing this tutorial, If your Java developer you can play with this. *Happy Coding!*
 
 [![Get it on Google Play](https://s19.postimg.org/5wroedueb/ic_launcher.png)](https://play.google.com/store/apps/details?id=in.myinnos.kotlinexample)
 
-[Kotlin](https://kotlinlang.org/ "Kotlin") is very lightweight, its runtime library is under 400K minus the ProGuard minification. Also, installation is very simple. All you have to do is browse the plugin repository and get the official Kotlin plugin. You also had to install Kotlin Android Extensions as well, required for Android of course, but not until recently it has been merged with the Kotlin plugin and is now obsolete.
+[Kotlin](https://kotlinlang.org/ "Kotlin") is very lightweight, its run-time library is under 400K minus the ProGuard minification. Also, installation is very simple. All you have to do is browse the plugin repository and get the official Kotlin plugin. You also had to install Kotlin Android Extensions as well, required for Android of course, but not until recently it has been merged with the Kotlin plugin and is now obsolete.
 
 
 	Settings > Plugins > Browse Repositories > Search Kotlin and install
@@ -16,7 +16,7 @@ To configure Kotlin in your project, convert any source file to Kotlin first.
 
 	Select a Java file > Hit Ctrl+Shift+A > “convert to kotlin” Hit enter
     
-Take a look [here](https://kotlinlang.org/docs/tutorials/kotlin-android.html "Kotlin Tutorial - Android") for screenshorts and breif explanation.   
+Take a look [here](https://kotlinlang.org/docs/tutorials/kotlin-android.html "Kotlin Tutorial - Android") for screenshots and brief explanation.   
 
 ##### Android UI With Anko
 [Anko](https://github.com/Kotlin/anko "Anko") is a library made in Kotlin that is a great utility for Android development. It consists of DSL wrappers and other nice extensions that make development easier. The prime value of Anko is that it allows you to embed UI layouts inside your source code, which makes it type-safe and allows programmatic transformation.
@@ -31,7 +31,7 @@ verticalLayout {
     }
 }
 ```
-Started by letting Gradle know some dependencies, one set for the Support Library, another for the Kotlin runtime, and one more set for Anko obviously.
+Started by letting Gradle know some dependencies, one set for the Support Library, another for the Kotlin run-time, and one more set for Anko obviously.
 
 ###### Reference those dependencies
 
@@ -40,7 +40,6 @@ Started by letting Gradle know some dependencies, one set for the Support Librar
 
 	dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
     compile "com.android.support:appcompat-v7:${SUPPORT_VERSION}"
     compile "com.android.support:recyclerview-v7:${SUPPORT_VERSION}"
     compile "org.jetbrains.anko:anko-sdk15:${ANKO_VERSION}"
@@ -58,11 +57,13 @@ One thing to be noted here, the Anko base library, i.e., the anko-sdk* lib, you 
 
 #### SplashScreenActivity.kt
 
-Splash screen is one of the friend for android devloeprs will see most of the times this screen while develpoing intresting concepts. Here you can see how Splashscreen code looks interms of Kotlin.
+Splash screen is one of the friend for android developers will see most of the times this screen while developing interesting concepts. Here you can see how Splashscreen code looks interms of Kotlin.
 
 *Note: Here i followed [this](https://www.bignerdranch.com/blog/splash-screens-the-right-way/ "Splash screens the right way") tutorial to create express splashscreen.*
+
 ```java
-class SplashScreenActivity : Activity() {
+class 
+: Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,34 +80,49 @@ class SplashScreenActivity : Activity() {
 ```
 ###### Some Awesome methods/functions
 ##### Variable declaration. int/string/boolean
+
 ```java
 var EMAIL_ID = "contact@myinnos.in"
 ```
+
 ##### To open Web URL
+
 ```java
 browse(GIT_HUB_URL)
 ```
+
 ##### setText function
+
 ```java
 tvHeader.text = HEADER_TEXT
 ```
+
 ##### Hint to Edit Text
+
 ```java
 etName.hint = EDIT_TEXT_NAME_HINT
 ```
+
 ##### Toast 
+
 ```java
 toast("Activity restarted!")
 ```
+
 ##### Email Intent  
+
 ```java
 email(EMAIL_ID, "subject")
 ```
+
 ##### Share Intent 
+
 ```java
 share("text")
 ```
+
 ##### Function declaration, function to get text length of edit text 
+
 ```java
 fun checkTextLength(editText: EditText): Boolean {
         var length = editText.length()
@@ -116,7 +132,9 @@ fun checkTextLength(editText: EditText): Boolean {
             return false
 }
 ```
+
 ##### onClick funtion
+
 ```java
 btDone.onClick {
             hideKeyboard()
@@ -126,7 +144,9 @@ btDone.onClick {
                 onButtonClicks()
 }
 ```
+
 ##### Dialog Aleart Box 
+
 ```java
 fun openAlertDialog(name: String, phoneNumber: String) {
 
@@ -145,7 +165,9 @@ fun openAlertDialog(name: String, phoneNumber: String) {
             }.show()
 }
 ```
+
 ##### Initializing menu options 
+
 ```java
  override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         getMenuInflater().inflate(R.menu.menu_main, menu)
@@ -163,11 +185,13 @@ fun openAlertDialog(name: String, phoneNumber: String) {
         return super.onOptionsItemSelected(item)
     }
 ```
+
 #### MainActivity.kt
 
 Main screen, The wall where Android developer paint and repair. Here you can observe the code how plain and simple. Basically i started loving Kotlin while writing this class.  
 
 *Note: I used [Google Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs "Google Custom Tabs") library to understand how third party java libraries will work with Kotlin.*
+
 ```java
 class MainActivity : AppCompatActivity() {
 
@@ -311,13 +335,15 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
+
 ### Conclusion
 Kotlin is overall a great language. It is much less verbose than Java, and has an excellent standard library that removes the need to use a lot of the libraries that make Java life bearable. Converting an app from Java to Kotlin is made much easier thanks to automated syntax conversion, and the result is almost always an improvement. If you’re an Android developer, you owe it to yourself to give it a try.
 
 ##### Any Queries? or Feedback, please let me know by opening a [new issue](https://github.com/myinnos/Kotlin-Example/issues/new)!
 
 ## Contact
-#### Prabhakar Thota
+
+### Prabhakar Thota
 * Website: [myinnos.com](https://myinnos.in "Prabhakar Thota")
 * e-mail: contact@myinnos.in
 * Twitter: [@myinnos](https://twitter.com/myinnos "Prabhakar Thota on twitter")
