@@ -344,7 +344,7 @@ Kotlin is overall a great language. It is much less verbose than Java, and has a
 ## Contact
 
 ### Prabhakar Thota
-* Website: [myinnos.com](https://myinnos.in "Prabhakar Thota")
+* Website: [myinnos.in](https://myinnos.in "Prabhakar Thota")
 * e-mail: contact@myinnos.in
 * Twitter: [@myinnos](https://twitter.com/myinnos "Prabhakar Thota on twitter")
 
