@@ -34,7 +34,7 @@ verticalLayout {
 Started by letting Gradle know some dependencies, one set for the Support Library, another for the Kotlin run-time, and one more set for Anko obviously.
 
 ###### Reference those dependencies
-
+```java
 	final SUPPORT_VERSION = '23.3.0'
 	final ANKO_VERSION = '0.8.3'
 
@@ -47,7 +47,7 @@ Started by letting Gradle know some dependencies, one set for the Support Librar
     compile "org.jetbrains.anko:anko-recyclerview-v7:${ANKO_VERSION}"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 	}
-
+```
 One thing to be noted here, the Anko base library, i.e., the anko-sdk* lib, you should add on the basis of your minimum SDK version and the rest of the other dependencies, you add on the basis of the Support Library that you wish to extend with Anko. For instance, add anko-design for design, which is from the Support Library.
 
 
