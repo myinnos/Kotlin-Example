@@ -16,13 +16,13 @@ import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
 
-    var HEADER_TEXT = "You can try awesome example!"
-    var EDIT_TEXT_NAME_HINT = "enter name"
-    var EDIT_TEXT_NUMBER_HINT = "enter number"
-    var EMAIL_ID = "contact@myinnos.in"
-    var GIT_HUB_URL = "https://github.com/myinnos/Kotlin-Example"
-    var GIT_HUB_WEB_URL = "https://myinnos.github.io/Kotlin-Example/";
-    var PLAY_STORE_URL = "market://details?id=" + BuildConfig.APPLICATION_ID
+    val HEADER_TEXT = "You can try awesome example!"
+    val EDIT_TEXT_NAME_HINT = "enter name"
+    val EDIT_TEXT_NUMBER_HINT = "enter number"
+    val EMAIL_ID = "contact@myinnos.in"
+    val GIT_HUB_URL = "https://github.com/myinnos/Kotlin-Example"
+    val GIT_HUB_WEB_URL = "https://myinnos.github.io/Kotlin-Example/";
+    val PLAY_STORE_URL = "market://details?id=" + BuildConfig.APPLICATION_ID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         etMobile.hint = EDIT_TEXT_NUMBER_HINT
 
         // setting drawable image to image view
-        imageView.resources.getDrawable(R.mipmap.ic_launcher)
+        imageView.image = resources.getDrawable(R.mipmap.ic_launcher)
 
         // onclick event for image view to restart activity (Intent function)
         imageView.onClick {
@@ -77,10 +77,7 @@ class MainActivity : AppCompatActivity() {
 
         var length = editText.length()
 
-        if (length > 0)
-            return true
-        else
-            return false
+        return length > 0
     }
 
     // function to hide keyboard
@@ -148,7 +145,7 @@ class MainActivity : AppCompatActivity() {
     // Initializing menu options
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
